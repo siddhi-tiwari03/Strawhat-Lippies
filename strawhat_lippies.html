@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strawhat's Lippies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --pink-nav: #f4a7b9;
+      --pink-light: #fff0f3;
+      --pink-mid: #fce4ec;
+      --pink-accent: #e8668a;
+      --text-dark: #4a2030;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--pink-light);
+      color: var(--text-dark);
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background: linear-gradient(135deg, #f4a7b9 0%, #f9c6d0 60%, #f4a7b9 100%);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 18px rgba(232, 102, 138, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo-icon {
+      font-size: 1.8rem;
+      animation: wiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    nav h1 {
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      font-size: 2rem;
+      text-shadow: 2px 3px 8px rgba(200, 60, 90, 0.3);
+      letter-spacing: 1px;
+    }
+
+    nav .tagline {
+      margin-left: auto;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── HERO STRIP ── */
+    .hero-strip {
+      background: linear-gradient(90deg, #fce4ec, #ffd6e0, #fce4ec);
+      text-align: center;
+      padding: 12px;
+      font-size: 0.85rem;
+      color: var(--pink-accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 24px 80px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: var(--pink-accent);
+      text-align: center;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #f4a7b9, #e8668a);
+      border-radius: 4px;
+      margin: 10px auto 0;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #b56880;
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    /* ── PRODUCT SECTION ── */
+    .product-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 36px 30px;
+      box-shadow: 0 8px 32px rgba(232,102,138,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border: 2px solid #fce4ec;
+      margin-bottom: 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '💋';
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-size: 5rem;
+      opacity: 0.06;
+    }
+
+    .product-card img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 6px 24px rgba(232,102,138,0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .product-card img:hover { transform: scale(1.03) rotate(-1deg); }
+
+    .product-info {
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: var(--pink-accent);
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #a06070;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f9c6d0, #f4a7b9);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* ── REVIEWS SECTION ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .video-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(232,102,138,0.12);
+      border: 2px solid #fce4ec;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(232,102,138,0.2);
+    }
+
+    /* ── EMBED LIVES HERE ── */
+    .video-card iframe {
+      width: 100%;
+      height: 220px;
+      border: none;
+      display: block;
+    }
+
+    .video-caption {
+      padding: 14px 18px;
+    }
+
+    .video-caption .reviewer {
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      color: var(--pink-accent);
+    }
+
+    .video-caption .stars {
+      font-size: 0.95rem;
+      margin: 4px 0;
+    }
+
+    .video-caption p {
+      font-size: 0.85rem;
+      color: #a06070;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg, #f4a7b9, #f9c6d0);
+      text-align: center;
+      padding: 24px;
+      color: #fff;
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav h1 { font-size: 1.4rem; }
+      nav .tagline { display: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <span class="logo-icon">💄</span>
+    <h1>Strawhat's Lippies</h1>
+    <span class="tagline">pout-worthy & proud ✨</span>
+  </nav>
+
+  <!-- ── HERO STRIP ── -->
+  <div class="hero-strip">✨ handmade · cruelty-free · 100% adorable ✨</div>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- PRODUCTS -->
+    <h2 class="section-heading">Our Products</h2>
+    <p class="section-sub">Because your lips deserve a little drama 💋</p>
+
+    <div class="product-card">
+      <img
+        src=lipbalm.jpg
+        alt="Two gorgeous lip balms by Strawhat's Lippies"
+      />
+      <div class="product-info">
+        <span class="badge">New Drop 🍓</span>
+        <h3>Glazed & Gorgeous Duo</h3>
+        <p>Our best-selling lip balm pair — strawberry vanilla & rosewater honey. Moisturising, glossy, and dangerously sniff-able.</p>
+      </div>
+    </div>
+
+
+    <!-- REVIEWS -->
+    <h2 class="section-heading">Customer Reviews</h2>
+    <p class="section-sub">Real people, real pouts 🎥</p>
+
+    <div class="reviews-grid">
+
+      <!-- VIDEO 1 -->
+      <div class="video-card">
+        <iframe
+          src="https://www.youtube.com/embed/bKEA0HUZ5j8?si=7WMUCbGyOpgKkkpl"
+          title="Customer Review 1"
+          allowfullscreen
+        ></iframe>
+        <div class="video-caption">
+          <div class="reviewer">Priya K.</div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Literally obsessed. My lips have never been this soft!"</p>
+        </div>
+      </div>
+
+      <!-- VIDEO 2 -->
+      <div class="video-card">
+        <iframe
+          src="https://www.youtube.com/embed/ISkZJXZH7JA?si=kLzEBXoISj2tlTlN" 
+          title="Customer Review 2"
+          allowfullscreen
+        ></iframe>
+        <div class="video-caption">
+          <div class="reviewer">Sana M.</div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Strawberry scent is heavenly. Bought 3 more already 😭"</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>made with 💋 by Strawhat's Lippies</footer>
+
+</body>
+</html>
